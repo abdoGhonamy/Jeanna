@@ -7,6 +7,7 @@ let dhikrName = document.getElementById("dhikr-name");
 let goalInput = document.getElementById("goal-input");
 let goalDisplay = document.getElementById("goal-display");
 let message = document.getElementById("message");
+emailjs.init("UprSMxuue-RFFCnHr");
 
 let count = 0;
 let goal = 0;
@@ -43,13 +44,30 @@ function increment() {
   }
 }
 
-// 💙 Save current count
-function save() {
-  saveEl.textContent += count + " - ";
+  function save() {
+  const dhikrNameText = dhikrName.textContent || "Unknown Dhikr";
+  const savedCount = count;
+
+  saveEl.textContent += savedCount + " - ";
   countEl.textContent = 0;
   count = 0;
+
   if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
+
+  // 🌸 Send email via EmailJS
+  emailjs.send("service_xxxxxx", "template_iewffas", {
+    from_name: "Jeanna’s Tasbih 💞",
+    dhikr_name: dhikrNameText,
+    count: savedCount
+  })
+  .then(() => {
+    
+  })
+  .catch((error) => {
+    
+  });
 }
+
 
 // 🔁 Reset everything
 function resetCount() {
