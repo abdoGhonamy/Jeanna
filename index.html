@@ -5,8 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jeanna's Tasbih</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- 🌸 Page icon / favicon -->
+  <link rel="icon" type="image/jpeg" href="5f81535b-e6ad-4c54-9b2f-5b920fb19689.jpg">
+  <link rel="apple-touch-icon" href="5f81535b-e6ad-4c54-9b2f-5b920fb19689.jpg">
 </head>
 <body>
+  <!-- Floating hearts background -->
+  <div class="hearts-container"></div>
+
   <div class="container">
     <h1 class="love">💖 I LOVE YOU JEANNA VERY MUCH 💖</h1>
 
@@ -15,13 +22,35 @@
     </div>
 
     <div class="content">
-      <h1>Tasbih Count</h1>
+      <label for="dhikr-select" class="label">Choose Dhikr:</label>
+      <select id="dhikr-select">
+        <option>SubhanAllah</option>
+        <option>Alhamdulillah</option>
+        <option>Allahu Akbar</option>
+        <option>Astaghfirullah</option>
+        <option value="custom">Custom</option>
+      </select>
+
+      <input type="text" id="custom-dhikr" placeholder="Enter your own dhikr" style="display:none">
+
+      <label for="goal-input" class="label">Set Goal:</label>
+      <input type="number" id="goal-input" placeholder="e.g. 33">
+
+      <h1 id="dhikr-name">SubhanAllah</h1>
       <h2 id="count-el">0</h2>
+      <p id="goal-display"></p>
+
       <button class="increment" onclick="increment()">🩷 INCREMENT</button>
       <button class="save" onclick="save()">💙 SAVE</button>
+      <button class="reset" onclick="resetCount()">🔁 RESET</button>
+
       <p id="savedstuff">Saved before: </p>
+      <p id="message"></p>
     </div>
   </div>
+
+  <!-- Click sound -->
+  <audio id="click-sound" src="click.mp3" preload="auto"></audio>
 
   <script src="script.js"></script>
 </body>
