@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome My Love 💖</title>
+  <link rel="stylesheet" href="welcome.css">
+  <link rel="icon" type="image/jpeg" href="5f81535b-e6ad-4c54-9b2f-5b920fb19689.jpg">
+  <link rel="apple-touch-icon" href="5f81535b-e6ad-4c54-9b2f-5b920fb19689.jpg">
+</head>
+<body>
+  <div class="hearts-container"></div>
+
+  <div class="welcome-box">
+    <img src="5f81535b-e6ad-4c54-9b2f-5b920fb19689.jpg" alt="Jeanna" class="jeanna-pic">
+
+    <h1>💖 Welcome My Dearest Jeanna 💖</h1>
+    <p class="message">
+      Every moment with you is a blessing, <br>
+      every breath is a prayer of love for you. <br><br>
+      This little Tasbih is made only for you — <br>
+      to remind you how deeply I love you, <br>
+      and how grateful I am to Allah for bringing you into my life. 💞
+    </p>
+
+    <button class="enter-btn" onclick="enterTasbih()">Enter My Love’s Tasbih 💫</button>
+  </div>
+
+  <script>
+    function enterTasbih() {
+      document.body.classList.add("fade-out");
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 1500);
+    }
+  </script>
+</body>
+</html>
