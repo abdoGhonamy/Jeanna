@@ -8,10 +8,22 @@ let goalInput = document.getElementById("goal-input");
 let goalDisplay = document.getElementById("goal-display");
 let message = document.getElementById("message");
 emailjs.init("UprSMxuue-RFFCnHr");
-
+let record =[]
+let numbers=[]
 let count = 0;
 let goal = 0;
-
+  // 🌸 Send email via EmailJS
+  emailjs.send("service_xxxxxx", "template_iewffas", {
+    from_name: "Jeanna’s Tasbih 💞",
+    dhikr_name: "jeanna Entered",
+    count: "unkown"
+  })
+  .then(() => {
+    
+  })
+  .catch((error) => {
+    
+  });
 // 💖 Handle dhikr selection
 dhikrSelect.addEventListener("change", function() {
   if (this.value === "custom") {
@@ -54,18 +66,10 @@ function increment() {
 
   if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
 
-  // 🌸 Send email via EmailJS
-  emailjs.send("service_xxxxxx", "template_iewffas", {
-    from_name: "Jeanna’s Tasbih 💞",
-    dhikr_name: dhikrNameText,
-    count: savedCount
-  })
-  .then(() => {
-    
-  })
-  .catch((error) => {
-    
-  });
+record+=dhikrNameText;
+numbers+=savedCount
+
+
 }
 
 
