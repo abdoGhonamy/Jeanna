@@ -1,79 +1,90 @@
 :root {
-  --bg1: #ffc0cb;
-  --bg2: #aee1f9;
-  --glass: rgba(255,255,255,0.36);
-  --accent: #ff4081;
+  --bg1:#2a0a2d;
+  --bg2:#3c0f4a;
+  --bg3:#5c0f69;
+  --glass: rgba(255,182,193,0.15);
+  --accent: #ff80bf;
+  --accent2: #ffc0d9;
 }
 
 * { box-sizing: border-box; }
 body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  width: 100%;
-  background: linear-gradient(135deg, var(--bg1), var(--bg2));
-  font-family: 'Poppins', sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+  margin:0; padding:0;
+  height:100vh; width:100%;
+  font-family:'Poppins',sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background: linear-gradient(135deg,var(--bg1),var(--bg2),var(--bg3));
+  overflow:hidden;
   transition: opacity 1s ease;
 }
 
 .fade-out { opacity: 0; }
 
 .welcome-box {
-  text-align: center;
+  text-align:center;
   background: var(--glass);
-  backdrop-filter: blur(12px);
-  border-radius: 24px;
-  padding: 28px;
-  max-width: 420px;
-  box-shadow: 0 10px 30px rgba(255,182,193,0.35);
-  z-index: 1;
-  transform-origin: center;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 30px;
+  padding:28px;
+  max-width:420px;
+  box-shadow:0 10px 36px rgba(0,0,0,0.22), 0 0 40px rgba(255,128,191,0.25);
+  transform-origin:center;
   transition: transform 0.9s ease, opacity 0.9s ease;
 }
 
-.zoom-out { transform: scale(.92) translateY(-10px); opacity: 0; }
+.zoom-out { transform: scale(.92) translateY(-10px); opacity:0; }
 
 .jeanna-pic {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  border: 3px solid white;
-  object-fit: cover;
-  box-shadow: 0 6px 18px rgba(255,105,180,0.5);
+  width:140px;
+  height:140px;
+  border-radius:50%;
+  border:4px solid rgba(255,255,255,0.95);
+  object-fit:cover;
+  box-shadow:0 8px 24px rgba(255,128,191,0.35);
+  margin-bottom:12px;
 }
 
 h1 {
   color: var(--accent);
-  font-size: 1.5rem;
-  margin: 18px 0 10px;
-  text-shadow: 0 0 8px rgba(255,255,255,0.85);
+  font-size:1.7rem;
+  margin:16px 0 12px;
+  text-shadow:0 0 12px var(--accent2);
+  animation:pulseGlow 1.5s infinite;
+}
+
+@keyframes pulseGlow{
+  0%,100%{transform:scale(1); text-shadow:0 0 12px var(--accent2);}
+  50%{transform:scale(1.08); text-shadow:0 0 24px var(--accent2);}
 }
 
 .message {
-  color: #333;
+  color: var(--accent2);
   font-size: 1rem;
-  line-height: 1.6;
+  line-height:1.6;
   margin-bottom: 22px;
   white-space: pre-wrap;
 }
 
 .enter-btn {
-  background-color: #ff8fb1;
-  border: none;
-  color: white;
-  font-weight: 600;
-  padding: 12px 22px;
-  border-radius: 12px;
-  font-size: 1.05rem;
-  cursor: pointer;
-  box-shadow: 0 6px 18px rgba(255,105,180,0.35);
-  transition: transform 0.25s ease;
+  background: linear-gradient(90deg,var(--accent),var(--accent2));
+  border:none;
+  color:#fff;
+  font-weight:600;
+  padding:12px 22px;
+  border-radius:18px;
+  font-size:1.1rem;
+  cursor:pointer;
+  box-shadow:0 6px 18px rgba(255,105,180,0.45);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-.enter-btn:hover { transform: scale(1.03); }
+
+.enter-btn:hover {
+  transform:scale(1.03);
+  box-shadow:0 8px 28px rgba(255,105,180,0.55);
+}
 
 /* Floating hearts */
 .hearts-container {
@@ -84,18 +95,20 @@ h1 {
 }
 .heart {
   position: absolute;
-  bottom: -10px;
-  color: rgba(255,105,180,0.75);
-  font-size: 18px;
+  bottom:-10px;
+  font-size:18px;
+  opacity:0.9;
   animation: floatUp 6s linear infinite;
 }
-@keyframes floatUp {
-  0% { transform: translateY(0) scale(1); opacity: 1; }
-  100% { transform: translateY(-120vh) scale(1.4); opacity: 0; }
+@keyframes floatUp{
+  0%{transform:translateY(0) scale(1);opacity:1;}
+  100%{transform:translateY(-120vh) scale(1.4);opacity:0;}
 }
 
 /* Responsive */
-@media (max-width:420px) {
-  .welcome-box { padding: 18px; margin: 12px; }
-  .message { font-size: 0.95rem; }
+@media (max-width:420px){
+  .welcome-box { padding:18px; margin:12px; }
+  h1 { font-size:1.5rem; }
+  .message { font-size:0.95rem; }
+  .enter-btn { font-size:1rem; padding:10px 18px; }
 }

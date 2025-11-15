@@ -9,48 +9,50 @@
   <link rel="apple-touch-icon" href="assets/5f81535b-e6ad-4c54-9b2f-5b920fb19689.jpg">
 </head>
 <body>
-  <div class="hearts-container"></div>
 
-  <div class="welcome-box" id="welcomeBox">
-    <img src="assets/5f81535b-e6ad-4c54-9b2f-5b920fb19689.jpg" alt="Jeanna" class="jeanna-pic">
-    <h1>💔 To my beautiful Jeanna</h1>
+<div class="hearts-container"></div>
 
-    <p class="message">
-      To my beautiful Jeanna, <br>
-      I’m ashamed of my words. <br>
-      You deserve kindness, softness, love — not pain. <br>
-      I’m sorry, truly… <br>
-      From the bottom of my heart, I beg your forgiveness.
-    </p>
+<div class="welcome-box" id="welcomeBox">
+  <img src="assets/5f81535b-e6ad-4c54-9b2f-5b920fb19689.jpg" alt="Jeanna" class="jeanna-pic">
+  <h1>💖 To my beautiful Jeanna 💖</h1>
 
-    <button class="enter-btn" onclick="enterTasbih()">Enter your app ya galby 💫</button>
-  </div>
+  <p class="message">
+    To my beautiful Jeanna,<br>
+    I’m ashamed of my words.<br>
+    You deserve kindness, softness, love — not pain.<br>
+    I’m sorry, truly…<br>
+    From the bottom of my heart, I beg your forgiveness.
+  </p>
 
-  <!-- Floating hearts script -->
-  <script>
-    const heartsContainer = document.querySelector(".hearts-container");
+  <button class="enter-btn" onclick="enterTasbih()">Enter your App,Hoby 💫</button>
+</div>
 
-    function createHeart() {
-      const heart = document.createElement("div");
-      heart.classList.add("heart");
-      heart.textContent = "💖";
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.fontSize = Math.random() * 20 + 10 + "px";
-      heart.style.animationDuration = Math.random() * 4 + 3 + "s";
-      heartsContainer.appendChild(heart);
+<script>
+  const heartsContainer = document.querySelector(".hearts-container");
 
-      setTimeout(() => heart.remove(), 7500);
-    }
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.textContent = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 12 + "px";
+    heart.style.animationDuration = Math.random() * 4 + 3 + "s";
+    const colors = ["#ff80bf","#ffb3d9","#ff99c2"];
+    heart.style.color = colors[Math.floor(Math.random()*colors.length)];
+    heartsContainer.appendChild(heart);
+    setTimeout(() => heart.remove(), 8000);
+  }
 
-    setInterval(createHeart, 600);
+  setInterval(createHeart, 600);
 
-    function enterTasbih() {
-      document.body.classList.add("fade-out");
-      document.getElementById("welcomeBox").classList.add("zoom-out");
-      setTimeout(() => {
-        window.location.href = "main/index.html";
-      }, 900);
-    }
-  </script>
+  function enterTasbih() {
+    document.body.classList.add("fade-out");
+    document.getElementById("welcomeBox").classList.add("zoom-out");
+    setTimeout(() => {
+      window.location.href = "main/index.html";
+    }, 900);
+  }
+</script>
+
 </body>
 </html>

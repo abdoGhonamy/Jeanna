@@ -1,14 +1,28 @@
-/* ---------------------- */
-/* LIGHT MODE VARIABLES   */
-/* ---------------------- */
 :root{
-  --bg-gradient-1:#f9d5d3; /* rose quartz */
-  --bg-gradient-2:#e8c1f2; /* lavender mist */
-  --bg-gradient-3:#ffd6d9; /* blush pink */
+  --bg-gradient-1:#2a0a2d;
+  --bg-gradient-2:#3c0f4a;
+  --bg-gradient-3:#5c0f69;
+  --glass:rgba(255,182,193,0.1);
+  --accent:#ff80bf;
+  --accent2:#ffc0d9;
+  --text:#f5e6e8;
+  --muted:#d3b8c6;
+  --btn-primary:#ff80bf;
+  --btn-secondary:#ffb3d9;
+  --btn-reset:#ff99c2;
+  --hearts-color-1:#ff80bf;
+  --hearts-color-2:#ffb3d9;
+  --hearts-color-3:#ff99c2;
+}
+
+:root[data-theme="dark"]{
+  --bg-gradient-1:#f9d5d3;
+  --bg-gradient-2:#e8c1f2;
+  --bg-gradient-3:#ffd6d9;
   --glass:rgba(255,255,255,0.35);
-  --accent:#f4978e; /* golden pink / coral */
-  --accent2:#f2c6e4; /* soft lavender */
-  --text:#3b2c2c; /* warm gray-brown */
+  --accent:#f4978e;
+  --accent2:#f2c6e4;
+  --text:#3b2c2c;
   --muted:#7a5c5c;
   --btn-primary:#f7a2a0;
   --btn-secondary:#f4c0d3;
@@ -18,29 +32,6 @@
   --hearts-color-3:#f7a2a0;
 }
 
-/* ---------------------- */
-/* DARK MODE VARIABLES    */
-/* ---------------------- */
-:root[data-theme="dark"]{
-  --bg-gradient-1:#2a0a2d; /* deep plum */
-  --bg-gradient-2:#3c0f4a; /* midnight purple */
-  --bg-gradient-3:#5c0f69; /* dark magenta */
-  --glass:rgba(255,182,193,0.1); /* soft rose tint */
-  --accent:#ff80bf; /* soft pink glow */
-  --accent2:#ffc0d9; /* lighter pink glow */
-  --text:#f5e6e8; /* soft warm white */
-  --muted:#d3b8c6; 
-  --btn-primary:#ff80bf; 
-  --btn-secondary:#ffb3d9; 
-  --btn-reset:#ff99c2;
-  --hearts-color-1:#ff80bf;
-  --hearts-color-2:#ffb3d9;
-  --hearts-color-3:#ff99c2;
-}
-
-/* ---------------------- */
-/* GLOBAL STYLING         */
-/* ---------------------- */
 *{box-sizing:border-box;}
 body{
   margin:0;
@@ -57,16 +48,12 @@ body{
   animation: backgroundShift 20s infinite alternate;
 }
 
-/* Gradient background animation */
 @keyframes backgroundShift{
   0%{background: linear-gradient(135deg,var(--bg-gradient-1),var(--bg-gradient-2),var(--bg-gradient-3));}
   50%{background: linear-gradient(135deg,var(--bg-gradient-2),var(--bg-gradient-3),var(--bg-gradient-1));}
   100%{background: linear-gradient(135deg,var(--bg-gradient-3),var(--bg-gradient-1),var(--bg-gradient-2));}
 }
 
-/* ---------------------- */
-/* CONTAINER              */
-/* ---------------------- */
 .container{
   max-width:440px;
   width:90%;
@@ -81,15 +68,6 @@ body{
   z-index:2;
 }
 
-/* Dark mode container glow */
-:root[data-theme="dark"] .container{
-  box-shadow:0 0 40px rgba(255,128,191,0.35), 0 10px 36px rgba(0,0,0,0.25);
-  border:2px solid rgba(255,182,193,0.2);
-}
-
-/* ---------------------- */
-/* IMAGE                  */
-/* ---------------------- */
 .image-box img{
   width:140px;
   height:140px;
@@ -99,9 +77,6 @@ body{
   margin-bottom:14px;
 }
 
-/* ---------------------- */
-/* DHIKR NAME             */
-/* ---------------------- */
 #dhikr-name{
   font-size:1.7rem;
   margin:12px 0;
@@ -110,20 +85,11 @@ body{
   animation:pulseGlow 1.5s infinite;
 }
 
-/* Pulse glow animation */
 @keyframes pulseGlow{
   0%,100%{transform:scale(1); text-shadow:0 0 12px var(--accent2);}
   50%{transform:scale(1.08); text-shadow:0 0 24px var(--accent2);}
 }
 
-/* Dark mode dhikr glow */
-:root[data-theme="dark"] #dhikr-name{
-  text-shadow: 0 0 8px var(--accent), 0 0 16px var(--accent2), 0 0 24px var(--accent);
-}
-
-/* ---------------------- */
-/* BUTTONS                */
-/* ---------------------- */
 button{
   min-height:56px;
   width:90%;
@@ -140,20 +106,15 @@ button:hover{
   box-shadow:0 8px 28px rgba(255,105,180,0.6);
 }
 
-/* Button gradients */
 .increment{background:linear-gradient(90deg,var(--btn-primary),var(--btn-secondary)); color:#fff;}
 .save{background:linear-gradient(90deg,var(--btn-secondary),var(--btn-primary)); color:#fff;}
 .reset{background:linear-gradient(90deg,var(--btn-reset),var(--btn-primary)); color:#fff;}
 
-/* Dark mode button hover glow */
 :root[data-theme="dark"] button:hover{
   box-shadow:0 0 20px var(--accent2),0 0 30px var(--accent);
   transform:translateY(-2px) scale(1.03);
 }
 
-/* ---------------------- */
-/* INPUTS                 */
-/* ---------------------- */
 select,input[type="number"],input[type="text"]{
   width:80%;
   border:none;
@@ -166,7 +127,6 @@ select,input[type="number"],input[type="text"]{
   box-shadow:0 2px 8px rgba(0,0,0,0.06);
 }
 
-/* Dark mode inputs */
 :root[data-theme="dark"] select,
 :root[data-theme="dark"] input[type="number"],
 :root[data-theme="dark"] input[type="text"]{
@@ -174,9 +134,6 @@ select,input[type="number"],input[type="text"]{
   color:var(--text);
 }
 
-/* ---------------------- */
-/* PROGRESS BAR           */
-/* ---------------------- */
 .progress-container{
   width:80%;
   height:16px;
@@ -191,10 +148,11 @@ select,input[type="number"],input[type="text"]{
   border-radius:12px;
   transition:width .3s ease;
 }
+.progress-bar.glow{
+  box-shadow:0 0 15px var(--accent2),0 0 30px var(--accent);
+  transition: box-shadow 0.2s ease;
+}
 
-/* ---------------------- */
-/* HEARTS                 */
-/* ---------------------- */
 .hearts-container{
   position:fixed;
   inset:0;
@@ -212,15 +170,11 @@ select,input[type="number"],input[type="text"]{
 .heart:nth-child(2){color:var(--hearts-color-2);}
 .heart:nth-child(3){color:var(--hearts-color-3);}
 
-/* Floating hearts animation */
 @keyframes floatUp{
   0%{transform:translateY(0) scale(1);opacity:1;}
   100%{transform:translateY(-120vh) scale(1.5);opacity:0;}
 }
 
-/* ---------------------- */
-/* LOVE NOTE              */
-/* ---------------------- */
 .love-note{
   font-style:italic;
   color:var(--accent2);
@@ -229,16 +183,15 @@ select,input[type="number"],input[type="text"]{
   transition:opacity .5s;
 }
 
-/* ---------------------- */
-/* TOPBAR                  */
-/* ---------------------- */
 .topbar{
   position:fixed;
   top:12px;
   right:12px;
   z-index:5;
+  display:flex;
+  gap:8px;
 }
-.theme-toggle{
+.theme-toggle, .mute-btn{
   background:rgba(255,255,255,0.12);
   border:none;
   padding:8px 10px;
@@ -248,9 +201,6 @@ select,input[type="number"],input[type="text"]{
   font-size:1.1rem;
 }
 
-/* ---------------------- */
-/* RESPONSIVE             */
-/* ---------------------- */
 @media (max-width:420px){
   .container{width:96%; padding:16px;}
   #count-el{font-size:2.1rem;}

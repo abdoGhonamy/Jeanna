@@ -15,15 +15,19 @@ const goalSound=document.getElementById("goal-sound");
 const heartsContainer=document.querySelector(".hearts-container");
 const loveNote=document.getElementById("love-note");
 const themeToggle=document.getElementById("themeToggle");
+const muteBtn=document.getElementById("muteToggle");
+const message=document.getElementById("message");
 
-let count=0,goal=0;
-const LS_KEYS={count:"jt_count",goal:"jt_goal",dhikr:"jt_dhikr",saved:"jt_saved",theme:"jt_theme"};
+let count=0,goal=0,isMuted=false;
+const LS_KEYS={count:"jt_count",goal:"jt_goal",dhikr:"jt_dhikr",saved:"jt_saved",theme:"jt_theme",muted:"jt_muted"};
 
 function loadState(){
   count=parseInt(localStorage.getItem(LS_KEYS.count))||0;
   goal=parseInt(localStorage.getItem(LS_KEYS.goal))||0;
   countEl.textContent=count;
   dhikrName.textContent=localStorage.getItem(LS_KEYS.dhikr)||dhikrSelect.value;
+  isMuted=localStorage.getItem(LS_KEYS.muted)==="true";
+  muteBtn.textContent=isMuted?"🔇":"🔊";
   updateProgress();
 }
 loadState();
@@ -34,6 +38,15 @@ themeToggle.addEventListener("click",()=>{
   document.documentElement.setAttribute("data-theme",next);
   localStorage.setItem(LS_KEYS.theme,next);
 });
+
+muteBtn.addEventListener("click",()=>{
+  isMuted=!isMuted;
+  localStorage.setItem(LS_KEYS.muted,isMuted);
+  muteBtn.textContent=isMuted?"🔇":"🔊";
+});
+
+function playClick(){if(isMuted)return; try{clickSound.currentTime=0; clickSound.play().catch(()=>{});}catch(e){}}
+function playGoal(){if(isMuted)return; try{goalSound.currentTime=0; goalSound.play().catch(()=>{});}catch(e){}}
 
 function createHeart(){
   const heart=document.createElement("div");
@@ -65,10 +78,10 @@ btnIncrement.addEventListener("click",()=>{
   playClick();
   createHeart();
   showLoveNote();
-  if(goal>0 && count>=goal){goalSound.play(); messageGoal();}
+  progressBar.classList.add("glow");
+  setTimeout(()=>progressBar.classList.remove("glow"),200);
+  if(goal>0 && count>=goal){playGoal(); messageGoal();}
 });
-
-function playClick(){try{clickSound.currentTime=0;clickSound.play().catch(()=>{});}catch(e){}}
 
 btnSave.addEventListener("click",()=>{
   const dhikr=dhikrName.textContent;
@@ -102,5 +115,4 @@ goalInput.addEventListener("change",()=>{
   updateProgress();
 });
 
-const message=document.getElementById("message");
 function messageGoal(){message.textContent="💖 MashaAllah, Jeanna! You reached your goal! 💖"; setTimeout(()=>message.textContent="",4000);}
