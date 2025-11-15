@@ -1,37 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome My Love 💖</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Forgive Me, Jeanna</title>
+  <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/jpeg" href="assets/5f81535b-e6ad-4c54-9b2f-5b920fb19689.jpg">
   <link rel="apple-touch-icon" href="assets/5f81535b-e6ad-4c54-9b2f-5b920fb19689.jpg">
 </head>
 <body>
   <div class="hearts-container"></div>
 
-  <div class="welcome-box">
+  <div class="welcome-box" id="welcomeBox">
     <img src="assets/5f81535b-e6ad-4c54-9b2f-5b920fb19689.jpg" alt="Jeanna" class="jeanna-pic">
+    <h1>💔 To my beautiful Jeanna</h1>
 
-    <h1>💖 Hi my litte beautiful Rohy 💖</h1>
     <p class="message">
-    <strong>It's AbdElbadea </strong>, I love you so much walahi, <br>
-      I've been working for days just to make it better for you. <br><br>
-      This app is only for you ya roohy — <br>
-      to remind you how deeply I love you, <br>
-      and how grateful I am to Allah for bringing you into my life. 💞
+      To my beautiful Jeanna, <br>
+      I’m ashamed of my words. <br>
+      You deserve kindness, softness, love — not pain. <br>
+      I’m sorry, truly… <br>
+      From the bottom of my heart, I beg your forgiveness.
     </p>
 
-    <button class="enter-btn" onclick="enterTasbih()">Enter your App ya hoby💫</button>
+    <button class="enter-btn" onclick="enterTasbih()">Enter your app ya galby 💫</button>
   </div>
 
+  <!-- Floating hearts script -->
   <script>
+    const heartsContainer = document.querySelector(".hearts-container");
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.textContent = "💖";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 20 + 10 + "px";
+      heart.style.animationDuration = Math.random() * 4 + 3 + "s";
+      heartsContainer.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 7500);
+    }
+
+    setInterval(createHeart, 600);
+
     function enterTasbih() {
       document.body.classList.add("fade-out");
+      document.getElementById("welcomeBox").classList.add("zoom-out");
       setTimeout(() => {
         window.location.href = "main/index.html";
-      }, 1500);
+      }, 900);
     }
   </script>
 </body>

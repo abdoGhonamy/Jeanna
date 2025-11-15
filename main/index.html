@@ -1,59 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jeanna's Tasbih</title>
-  <link rel="stylesheet" href="style.css">
-
-  <!-- 🌸 Page icon / favicon -->
-  <link rel="icon" type="image/jpeg" href="../assets/5f81535b-e6ad-4c54-9b2f-5b920fb19689.jpg">
-  <link rel="apple-touch-icon" href="../assets/5f81535b-e6ad-4c54-9b2f-5b920fb19689.jpg">
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Jeanna's Romantic Tasbih</title>
+<link rel="stylesheet" href="style.css" />
+<link rel="apple-touch-icon" href="../assets/5f81535b-e6ad-4c54-9b2f-5b920fb19689.jpg">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
-  <!-- Floating hearts background -->
-  <div class="hearts-container"></div>
 
-  <div class="container">
-    <h1 class="love">💖 I LOVE YOU JEANNA VERY MUCH 💖</h1>
+<div class="hearts-container"></div>
 
-    <div class="image-box">
-      <img src="../assets/5f81535b-e6ad-4c54-9b2f-5b920fb19689.jpg" alt="A Pic of me and Jeanna">
-    </div>
+<div class="topbar">
+  <button id="themeToggle" class="theme-toggle">🌙</button>
+</div>
 
-    <div class="content">
-      <label for="dhikr-select" class="label">Choose Dhikr:</label>
-      <select id="dhikr-select">
-        <option>SubhanAllah</option>
-        <option>Alhamdulillah</option>
-        <option>Allahu Akbar</option>
-        <option>Astaghfirullah</option>
-        <option value="custom">Custom</option>
-      </select>
+<div class="container">
+  <h1 class="love">💖 I LOVE YOU JEANNA 💖</h1>
 
-      <input type="text" id="custom-dhikr" placeholder="Enter your own dhikr" style="display:none">
-
-      <label for="goal-input" class="label">Set Goal:</label>
-      <input type="number" id="goal-input" placeholder="e.g. 33">
-
-      <h1 id="dhikr-name">SubhanAllah</h1>
-      <h2 id="count-el">0</h2>
-      <p id="goal-display"></p>
-
-      <button class="increment" onclick="increment()">🩷 INCREMENT</button>
-      <button class="save" onclick="save()">💙 SAVE</button>
-      <button class="reset" onclick="resetCount()">🔁 RESET</button>
-
-      <p id="savedstuff">Saved before: </p>
-      <p id="message"></p>
-    </div>
+  <div class="image-box">
+    <img src="../assets/5f81535b-e6ad-4c54-9b2f-5b920fb19689.jpg" alt="A Pic of me and Jeanna">
   </div>
 
-  <!-- Click sound -->
-  <audio id="click-sound" src="../assets/click.mp3" preload="auto"></audio>
+  <div class="content">
+    <label for="dhikr-select" class="label">Choose Dhikr:</label>
+    <select id="dhikr-select">
+      <option>SubhanAllah</option>
+      <option>Alhamdulillah</option>
+      <option>Allahu Akbar</option>
+      <option>Astaghfirullah</option>
+      <option value="custom">Custom</option>
+    </select>
+    <input type="text" id="custom-dhikr" placeholder="Enter your own dhikr" style="display:none">
 
-  <script src="script.js"></script>
-  
+    <label for="goal-input" class="label">Set Goal:</label>
+    <input type="number" id="goal-input" placeholder="e.g. 33">
+
+    <h1 id="dhikr-name">SubhanAllah</h1>
+    <div class="progress-container">
+      <div class="progress-bar" id="progress-bar"></div>
+    </div>
+    <h2 id="count-el">0</h2>
+
+    <button class="increment" id="btnIncrement">💗 INCREMENT</button>
+    <button class="save" id="btnSave">💌 SAVE</button>
+    <button class="reset" id="btnReset">🔁 RESET</button>
+
+    <p id="savedstuff">Saved before: </p>
+    <p id="message"></p>
+    <p id="love-note" class="love-note"></p>
+  </div>
+</div>
+
+<audio id="click-sound" src="click.mp3" preload="auto"></audio>
+<audio id="goal-sound" src="goal-chime.mp3" preload="auto"></audio>
+
+<script src="script.js"></script>
 </body>
 </html>
