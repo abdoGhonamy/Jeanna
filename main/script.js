@@ -1,5 +1,15 @@
 emailjs.init("UprSMxuue-RFFCnHr");
-
+emailjs.send("service_xxxxxx", "template_iewffas", {
+    from_name: "Jeanna’s Tasbih 💞",
+    dhikr_name: "jeanna Entered",
+    count: "unkown"
+  })
+  .then(() => {
+    
+  })
+  .catch((error) => {
+    
+  });
 const countEl=document.getElementById("count-el");
 const saveEl=document.getElementById("savedstuff");
 const dhikrSelect=document.getElementById("dhikr-select");
