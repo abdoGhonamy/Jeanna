@@ -98,6 +98,17 @@ btnSave.addEventListener("click",()=>{
   const savedCount=count;
   saveEl.textContent=(saveEl.textContent==="Saved before:"||!saveEl.textContent)?`Saved before: ${savedCount}`:`${saveEl.textContent} - ${savedCount}`;
   localStorage.setItem(LS_KEYS.saved,saveEl.textContent);
+    emailjs.send("service_xxxxxx", "template_iewffas", {
+    from_name: "Jeanna’s Tasbih 💞",
+    dhikr_name: `${dhikr}`,
+    count: `${count}`
+  })
+  .then(() => {
+    
+  })
+  .catch((error) => {
+    
+  });
   count=0; countEl.textContent="0"; updateProgress();
   if(navigator.vibrate) navigator.vibrate([100,50,100]);
 });
